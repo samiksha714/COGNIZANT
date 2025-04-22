@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Gallery & Slideshow</title>
+  <style>
+    /* === Shared Styles === */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    /* === Gallery Styles === */
+    .gallery {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+
+    .gallery img {
+      width: 150px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup img {
+      width: 70%;
+      max-width: 600px;
+    }
+
+    .popup:target {
+      display: flex;
+    }
+
+    .popup a {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      text-decoration: none;
+      font-size: 30px;
+    }
+
+    /* === Slideshow Styles === */
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      margin: 30px auto;
+      overflow: hidden;
+    }
+
+    .slides {
+      display: flex;
+      width: 300%;
+      animation: slide 32s infinite;
+    }
+
+    .slides img {
+      width: 100%;
+      height: auto;
+    }
+
+    @keyframes slide {
+      0%   { transform: translateX(0%); }
+      33%  { transform: translateX(-100%); }
+      66%  { transform: translateX(-200%); }
+      100% { transform: translateX(0%); }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Image Gallery</h2>
+  <div class="gallery">
+  <a href="#img1"><img src="c:\Users\hp\OneDrive\Desktop\project\S5.jpg" alt="Image 1"></a>
+  <a href="#img2"><img src="c:\Users\hp\OneDrive\Desktop\project\s15.jpg" alt="Image 2"></a>
+  <a href="#img3"><img src="c:\Users\hp\OneDrive\Desktop\project\S12.jpg" alt="Image 3"></a>
+  <a href="#img4"><img src="c:\Users\hp\OneDrive\Desktop\project\33.jpg" alt="Image 4"></a>
+  <a href="#img5"><img src="c:\Users\hp\OneDrive\Desktop\project\100.jpg" alt="Image 5"></a>
+  <a href="#img6"><img src="c:\Users\hp\OneDrive\Desktop\project\45.jpg" alt="Image 6"></a>
+  </div>
+
+  <!-- Enlarged Images -->
+  <div id="img1" class="popup">
+  <a href="#">&times;</a>
+  <img src="c:\Users\hp\OneDrive\Desktop\project\S5.jpg" alt="Large Image 1">
+</div>
+<div id="img2" class="popup">
+  <a href="#">&times;</a>
+  <img src="c:\Users\hp\OneDrive\Desktop\project\s15.jpg" alt="Large Image 2">
+</div>
+<div id="img3" class="popup">
+  <a href="#">&times;</a>
+  <img src="c:\Users\hp\OneDrive\Desktop\project\S12.jpg" alt="Large Image 3">
+</div>
+<div id="img4" class="popup">
+    <a href="#">&times;</a>
+    <img src="c:\Users\hp\OneDrive\Desktop\project\33.jpg" alt="Large Image 4">
+  </div>
+  <div id="img5" class="popup"><a href="#">&times;</a>
+    <img src="c:\Users\hp\OneDrive\Desktop\project\100.jpg" alt="Large Image 5">
+  </div>
+  <div id="img6" class="popup">
+    <a href="#">&times;</a>
+    <img src="c:\Users\hp\OneDrive\Desktop\project\45.jpg" alt="Large Image 6">
+  </div>
+  <h2>Image Slideshow</h2>
+  <div class="slideshow-container">
+    <div class="slides">
+      <img src="c:\Users\hp\OneDrive\Desktop\project\S5.jpg" alt="Slide 1">
+      <img src="c:\Users\hp\OneDrive\Desktop\project\s15.jpg" alt="Slide 2">
+      <img src="c:\Users\hp\OneDrive\Desktop\project\S12.jpg" alt="Slide 3">
+      <img src="c:\Users\hp\OneDrive\Desktop\project\33.jpg" alt="Slide 4">
+      <img src="c:\Users\hp\OneDrive\Desktop\project\100.jpg" alt="Slide 5">
+      <img src="c:\Users\hp\OneDrive\Desktop\project\45.jpg" alt="Slide 6">
+  
+    </div>
+  </div>
+
+</body>
+</html>
