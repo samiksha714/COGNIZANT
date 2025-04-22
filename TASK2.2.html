@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovely Fruits</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #ffc107; /* Yellow */
+            color: #333;
+            padding: 1em 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-left: 15px;
+        }
+
+        .main-nav ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .hamburger {
+            display: none; /* Initially hidden on larger screens */
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .hamburger.active .fa-bars::before {
+            content: '\f00d'; /* Change to 'X' icon when active (Font Awesome) */
+        }
+
+        .hero {
+            background-color: #e0f7fa; /* Light Cyan */
+            color: #00838f; /* Cyan */
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+        }
+
+        .fruit-section {
+            padding: 30px 0;
+        }
+
+        .fruit-section h2 {
+            text-align: center;
+            color: #ff9800; /* Orange */
+            margin-bottom: 20px;
+        }
+
+        .fruit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .fruit-card {
+            background-color: white;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .fruit-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .fruit-card h3 {
+            font-size: 1.2em;
+            color: #ff9800; /* Orange */
+            margin-bottom: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 30px;
+            font-size: 0.8em;
+        }
+
+        /* --- Media Queries for Responsiveness --- */
+
+        /* Small screens (up to 768px) */
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none; /* Hide the main navigation by default */
+                width: 100%;
+                background-color: #ffc107;
+                position: absolute;
+                top: 55px; /* Adjust based on header height */
+                left: 0;
+                z-index: 10;
+            }
+
+            .main-nav.active {
+                display: block; /* Show the navigation when the hamburger is active */
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 0;
+            }
+
+            .main-nav ul li {
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: block; /* Show the hamburger menu on smaller screens */
+            }
+
+            header .container {
+                position: relative; /* Needed for absolute positioning of the nav */
+            }
+
+            .fruit-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .hero {
+                padding: 30px 15px;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .fruit-card {
+                padding: 10px;
+            }
+        }
+
+        /* Extra small screens (up to 480px) */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5em;
+            }
+
+            .hero h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Lovely Fruits</div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#apples">Apples</a></li>
+                    <li><a href="#bananas">Bananas</a></li>
+                    <li><a href="#oranges">Oranges</a></li>
+                    <li><a href="#berries">Berries</a></li>
+                    <li><a href="#other-fruits">More Fruits</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Enjoy the Freshness of Fruits</h1>
+            <p>Explore a colorful selection of delicious and healthy fruits.</p>
+        </section>
+
+        <section id="apples" class="fruit-section">
+            <h2>Apples</h2>
+            <div class="fruit-grid">
+                <div class="fruit-card">
+                    <img src="https://www.shutterstock.com/image-photo/ripe-red-apple-fruit-half-260nw-699645961.jpg" alt="Apple">
+                    <h3>Red Apple</h3>
+                    <p>A classic crisp and sweet variety.</p>
+                </div>
+                <div class="fruit-card">
+                    <img src="https://images.squarespace-cdn.com/content/v1/5a8d04ec4c0dbfcf5f37aa83/1530549561267-EB9AZHTWDYOYMGUGKXI5/greenapple.886511184.1200x1200.jpg" alt="Green Apple">
+                    <h3>Green Apple</h3>
+                    <p>A tart and refreshing apple.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="bananas" class="fruit-section">
+            <h2>Bananas</h2>
+            <div class="fruit-grid">
+                <div class="fruit-card">
+                    <img src="https://feelkaro.s3.ap-south-1.amazonaws.com/uploads/Sep2022/5465/products/rszimages/600x600/fk_18699.jpg" alt="Banana">
+                    <h3>Regular Banana</h3>
+                    <p>A soft and energy-rich fruit.</p>
+                </div>
+                <div class="fruit-card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9ueg2ORrolmzxetQR3iRoOkPXiPZ8ybjQhw&s" alt="Plantain">
+                    <h3>Plantain</h3>
+                    <p>A starchy banana, often cooked.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="oranges" class="fruit-section">
+            <h2>Oranges</h2>
+            <div class="fruit-grid">
+                <div class="fruit-card">
+                    <img src="https://cdn.commercev3.net/cdn.countrysidecitrus.com/images/popup/red-navels.jpg" alt="Orange">
+                    <h3>Navel Orange</h3>
+                    <p>A popular juicy and sweet orange.</p>
+                </div>
+                <div class="fruit-card">
+                    <img src="https://cdn.pixabay.com/photo/2015/07/18/14/34/tangerine-850432_1280.jpg" alt="Mandarin">
+                    <h3>Mandarin</h3>
+                    <p>Small, easy-to-peel citrus fruit.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="berries" class="fruit-section">
+            <h2>Berries</h2>
+            <div class="fruit-grid">
+                <div class="fruit-card">
+                    <img src="https://thumbs.dreamstime.com/b/three-strawberries-strawberry-leaf-white-background-114284301.jpg" alt="Strawberry">
+                    <h3>Strawberry</h3>
+                    <p>A sweet and juicy red berry.</p>
+                </div>
+                <div class="fruit-card">
+                    <img src="https://blueberry.org/wp-content/uploads/2021/04/Fresh-Highbush-Blueberries-in-Heart-Dish-edited.jpg" alt="Blueberry">
+                    <h3>Blueberry</h3>
+                    <p>Small, antioxidant-rich blue fruit.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="other-fruits" class="fruit-section">
+            <h2>More Delicious Fruits</h2>
+            <div class="fruit-grid">
+                <div class="fruit-card">
+                    <img src="https://media.istockphoto.com/id/184099853/photo/fresh-grapes.jpg?s=612x612&w=0&k=20&c=IxIcZ4M8c4-ksK4bvmtKUp03jaZwRMBcxplyZB-iZ0A=" alt="Grapes">
+                    <h3>Grapes</h3>
+                    <p>Small, round or oval fruits that grow in clusters.</p>
+                </div>
+                <div class="fruit-card">
+                    <img src="https://www.mango.org/wp-content/uploads/2024/07/shutterstock_1361566754.jpg" alt="Mango">
+                    <h3>Mango</h3>
+                    <p>A tropical fruit with sweet, yellow flesh.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Lovely Fruits</p>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.main-nav ul');
+        const navLinks = document.querySelectorAll('.main-nav ul li a');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+                const targetId = link.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
